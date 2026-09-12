@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>    
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Glitched Visor | bio</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <nav class="top-menu">
+            <a class="menu-brand" href="#">GlitchedVisor.</a>
+
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-links" aria-label="Open menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="menu-links" id="menu-links">
+                <a href="#skills-overview">Skills</a>
+                <a href="#about">About</a>
+            </div>
+
+            <button
+                class="menu-contact"
+                onclick="document.getElementById('contact').scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+                })">
+                Contact me
+            </button>
+        </nav>
+
+        <script>
+            const menuToggle = document.querySelector('.menu-toggle');
+            const menuLinks = document.querySelector('.menu-links');
+
+            menuToggle.addEventListener('click', () => {
+                const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+                menuToggle.setAttribute('aria-expanded', String(!isOpen));
+                menuToggle.setAttribute('aria-label', isOpen ? 'Open menu' : 'Close menu');
+                menuLinks.classList.toggle('is-open', !isOpen);
+            });
+
+            menuLinks.querySelectorAll('a').forEach((link) => {
+                link.addEventListener('click', () => {
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                    menuToggle.setAttribute('aria-label', 'Open menu');
+                    menuLinks.classList.remove('is-open');
+                });
+            });
+        </script>
+
+        <div class="container">
+            <header id="about" class="profile">
+                <div class="profile-frame">
+                    <img
+                      src="images/profilepic.jpg"
+                      alt="profile pic"
+                      class="profile-img"
+                    />
+                </div>
+
+                <h1 class="name">GlitchedVisor. 
+                    <img 
+                      src="images/verified.svg" 
+                      alt="Verified" 
+                      class="verified-icon"
+                    />
+                </h1>
+
+                <p>
+                    I am a secondary school student with a passion for technology and programming. My timezone is GMT+8.
+                </p>
+            </header>
+
+            <button
+                class="skill-button"
+                onclick="document.getElementById('skills-overview').scrollIntoView({ behavior: 'smooth', block: 'center' })">
+                Overview Of My Skills
+            </button>
+
+            <h3 id="skills-overview" class="blue-word">
+                My Skills
+            </h3>
+
+            <h1 class="sub-topic">
+                Below is an overview of my <span class="blue-word">skills</span>
+            </h1>
+
+            <div class="skills">
+                <button class="python">
+                    <span class="yellow-word-solid">Python</span> development
+                </button>
+
+                <button class="scratch">
+                    <span class="orange-word-solid">Scratch</span>
+                </button>
+
+                <button class="cplusplus">
+                    <span class="blue-word-solid">C++</span> development
+                </button>
+
+                <button class="web-dev">
+                    <span class="green-word-solid">Web</span> development
+                </button>
+
+                <button class="arduino">
+                    <span class="turquoise-word-solid">Arduino</span> development
+                </button>
+
+                <button class="capcut">
+                    <span class="lightgray-word-solid">CapCut</span> editing
+                </button>
+            </div>
+
+            <h3 class="blue-word" style="margin-top:80px;">
+                Still learning
+            </h3>
+
+            <h1 class="sub-topic">
+                Below are some stuff that <span class="blue-word">I want to learn</span> and some still<span class="blue-word"> learning</span>
+            </h1>
+
+            <div class="skills">
+                <button class="blender">
+                    <span class="orange-word-solid">Blender</span> animating & modeling
+                </button>
+
+                <button class="Godot">
+                    <span class="blue-word-solid">Godot</span> 2D and 3D game dev
+                </button>
+
+                <button class="GameMaker">
+                    <span class="lightgray-word-solid">GameMaker</span> 2D game dev
+                </button>
+
+                <button class="Discord">
+                    <span class="blue-word-solid">Discord</span> bot development
+                </button>
+            </div>
+
+            <h3
+                id="contact"
+                onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth', block: 'center'})"
+                style="margin-top:300px;">
+                Contact
+            </h3>
+
+            <h1 class="sub-topic">
+               My personal <span class="blue-word">contact</span>
+            </h1>
+
+            <div class="contact-cards">
+                <div class="outer-git-button">
+                    <h2 class="contact2">GitHub</h2>
+                    <h6 class="par2"> My Github profile</h6>
+                    <button onclick="window.open('https://github.com/absolutvoid01', '_blank')" class="github-link"> absolutevoid01 </button>
+                </div>
+
+                <div class="outer-discord-button">
+                    <h2 class="contact2">Discord</h2>
+                    <h6 class="par2"> mostly active on the weekends</h6>
+                    <button onclick="window.open('https://discord.com/users/absolute_void01', '_blank')" class="discord-link"> @absolute_void01 </button>
+                </div>
+
+                <div class="outer-spotify-button">
+                    <h2 class="contact2">Spotify</h2>
+                    <h6 class="par2"> mostly active in the evenings</h6>
+                    <button onclick="window.open('https://open.spotify.com/user/absolute_void01', '_blank')" class="spotify-link"> GlitchVisor. </button>
+                </div>
+
+                <div class="outer-server-button">
+                    <h2 class="contact2">Discord Server</h2>
+                    <h6 class="par2"> Join my discord server "S.T.A.R"</h6>
+                    <button onclick="window.open('https://discord.gg/YfamAQuhZP', '_blank')" class="server-link"> Join my server! </button>
+                </div>
+            </div>
+            <h4 class="blue-word" class="end">Made by GlitchedVisor.</h4>
+            <p class="end">This was a 2 months project and I made it while learning. I will add things in this web in the future. I'm very happy it's finished (for now).</p>
+    </body>
+</html>
